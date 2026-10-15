@@ -1,0 +1,134 @@
+:root {
+  --bg: #f4f5f7;
+  --card: #ffffff;
+  --cell: #eef0f3;
+  --cell-hover: #e3e6eb;
+  --border: #d6dae1;
+  --text: #1c1f24;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-text: #ffffff;
+  --x: #d9480f;
+  --o: #1971c2;
+  --win: #d3f9d8;
+  --error: #c92a2a;
+
+  font-family:
+    system-ui,
+    -apple-system,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #111318;
+    --card: #1a1d24;
+    --cell: #242933;
+    --cell-hover: #2d3340;
+    --border: #3a4150;
+    --text: #e6e8ec;
+    --muted: #9aa3b2;
+    --accent: #60a5fa;
+    --accent-text: #0b1220;
+    --x: #ff8a4c;
+    --o: #74c0fc;
+    --win: #1f4d2b;
+    --error: #ff6b6b;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+#app {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.card {
+  width: 100%;
+  min-width: 0;
+  max-width: 460px;
+  padding: 28px 24px;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.card.wide {
+  max-width: 760px;
+}
+
+button {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.primary,
+.ghost {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+.primary:hover:not(:disabled) {
+  filter: brightness(1.08);
+}
+
+.primary:disabled,
+.ghost:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.primary.big {
+  padding: 14px 40px;
+  font-size: 1.15rem;
+  border-radius: 14px;
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text);
+  border-color: var(--border);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--cell);
+}
+
+.error {
+  margin: 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--error) 12%, transparent);
+  color: var(--error);
+  font-size: 0.9rem;
+  text-align: center;
+}
